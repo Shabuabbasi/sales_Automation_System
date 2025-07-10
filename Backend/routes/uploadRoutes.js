@@ -1,4 +1,3 @@
-// routes/uploadRoutes.js
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
@@ -9,9 +8,7 @@ const upload = multer({
   dest: "uploads/",
   fileFilter: (req, file, cb) => {
     const ext = path.extname(file.originalname);
-    if (ext !== ".xlsx") {
-      return cb(new Error("Only .xlsx files are allowed"));
-    }
+    if (ext !== ".xlsx") return cb(new Error("Only .xlsx files allowed"));
     cb(null, true);
   },
 });
