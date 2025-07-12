@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const uploadRoutes = require("./routes/uploadRoutes");
 const emailRoutes = require("./routes/emailRoutes");
+const webhookRoutes = require("./routes/webRoutes");
 
 dotenv.config(); // ✅ Loads environment variables from .env
 
@@ -21,6 +22,7 @@ app.use(express.json());
 // ✅ Routes
 app.use("/api/upload", uploadRoutes);
 app.use("/api/email", emailRoutes);
+app.use("/api/webhook", webhookRoutes);
 
 // ✅ Start server
 app.listen(PORT, () => {
